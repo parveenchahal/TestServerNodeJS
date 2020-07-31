@@ -12,13 +12,15 @@ app.use(bodyParser.json());
 //})
 
 app.get("*", function(req, res) {
-    console.log("GET request");
     res.writeHead(200);
-    res.write("Path: " + req.url + "\n");
+    r = {}
+    r["method"] = "GET"
+    r["path"] = req.url
     for(var header in req.headers) {
-        res.write(header + ": " + req.headers[header] + "\n");
+        r[header] = req.headers[header]
     }
-    res.end("");
+    console.log(r)
+    res.end(JSON.stringify(r));
 })
 
-http.createServer(app).listen(8080);
+http.createServer(app).listen(3000);
