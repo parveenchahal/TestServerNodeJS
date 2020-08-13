@@ -16,6 +16,7 @@ app.get("*", function(req, res) {
     r = {}
     r["method"] = "GET"
     r["path"] = req.url
+    r["utc_time"] = (new Date()).toUTCString()
     for(var header in req.headers) {
         r[header] = req.headers[header]
     }
