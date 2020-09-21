@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: httptest
   namespace: httptest
 spec:
   selector:
       matchLabels:
-        run: nginx
+        run: httptest
   replicas: 1
   template:
     metadata:
       labels:
-        run: nginx
+        run: httptest
     spec:
       containers:
-      - name: nginx-1
+      - name: httptest-1
         image: pchahal24/http_test:latest
         imagePullPolicy: Always
         ports:
