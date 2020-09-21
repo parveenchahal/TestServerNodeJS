@@ -11,6 +11,7 @@ RUN npm install express
 RUN npm install thread-sleep
 RUN apk add wget
 RUN apk add jq
+RUN apk add bash
 EXPOSE 80 443
 RUN chmod +x startup.sh
 CMD ["./startup.sh"]
