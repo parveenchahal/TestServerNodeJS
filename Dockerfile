@@ -6,7 +6,7 @@ COPY startup.sh /app
 COPY http_server.js /app
 COPY server.js /app
 WORKDIR /app
-RUN apk add --update nodejs npm
+RUN apk add --update nghttp2-dev nodejs npm
 RUN npm install express
 RUN npm install thread-sleep
 RUN apk add wget
