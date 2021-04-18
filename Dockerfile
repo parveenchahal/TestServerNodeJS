@@ -9,9 +9,7 @@ WORKDIR /app
 RUN apk add --update nghttp2-dev nodejs npm
 RUN npm install express
 RUN npm install thread-sleep
-RUN apk add wget
-RUN apk add jq
-RUN apk add bash
+RUN apk add bash vim curl jq wget
 EXPOSE 80 443
 RUN chmod +x startup.sh
 CMD ["./startup.sh"]
