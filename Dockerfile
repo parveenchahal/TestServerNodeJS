@@ -1,10 +1,12 @@
 FROM nginx:1.19.0-alpine
 RUN apk update
+RUN apk add bash openssl
 RUN mkdir /app
 COPY nginx.conf /etc/nginx
 COPY startup.sh /app
 COPY http_server.js /app
 COPY server.js /app
+COPY parkuma-cert.conf /app
 WORKDIR /app
 RUN apk add --update nghttp2-dev nodejs npm
 RUN npm install express
